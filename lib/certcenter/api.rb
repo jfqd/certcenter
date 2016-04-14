@@ -18,12 +18,11 @@ module Certcenter
     end
     
     def key
-      @csr
+      @key
     end
     
     def products
       r = Certcenter.server(@oauth_token).get("Products")
-      puts r
       r["Products"]
     rescue ResponseException => e
       return e
@@ -48,7 +47,6 @@ module Certcenter
     def order
       h = { "OrderParameters" => { "ProductCode" => @product_code, "CSR" => @csr, "ValidityPeriod" => 365 } }
       r = Certcenter.server(@oauth_token).post("Order", h)
-      puts r.inspect
       @intermediate = r["Fulfillment"]["Intermediate"]
       @crt = r["Fulfillment"]["Certificate"]
       true
