@@ -38,6 +38,12 @@ module Certcenter
       @logger      = logger
     end
     
+    def get(request_uri, data = nil)
+      url = "#{base_uri}/#{request_uri}"
+      response = https_request(:get, url, data)
+      parse_body(response)
+    end
+    
     def post(request_uri, data = nil)
       url = "#{base_uri}/#{request_uri}"
       response = https_request(:post, url, data)
