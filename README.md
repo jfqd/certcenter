@@ -28,7 +28,7 @@ organization = "Example Inc."
 country      = "US"
 state_name   = "California"
 locality     = "San Francisco"
-domain_list  = ["www.example.com","mail.example.com"]
+domain_list  = ["www.example.com","mail.example.com"] # note: not for AlwaysOnSSL certs!
 oauth_token  = "XYZXYZXYZXYZXYZXYZXYZ.oauth2.certcenter.com"
 
 cr = Certcenter.new(common_name, organization, country, state_name, locality, domain_list, oauth_token)
