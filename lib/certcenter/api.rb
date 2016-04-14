@@ -21,6 +21,14 @@ module Certcenter
       @csr
     end
     
+    def products
+      r = Certcenter.server(@oauth_token).get("Products")
+      puts r
+      r["Products"]
+    rescue ResponseException => e
+      return e
+    end
+    
     def valid?
       h = { "CommonName" => @common_name }
       r = Certcenter.server(@oauth_token).post("ValidateName", h)
