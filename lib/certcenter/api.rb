@@ -25,7 +25,7 @@ module Certcenter
       r = Certcenter.server(@oauth_token).post("ValidateName", h)
       r["IsQualified"] == true
     rescue ResponseException => e
-      false
+      return e
     end
     
     def dns_data
@@ -33,7 +33,7 @@ module Certcenter
       r = Certcenter.server(@oauth_token).post("DNSData", h)
       [ r["DNSAuthDetails"]["DNSEntry"], r["DNSAuthDetails"]["DNSValue"] ]
     rescue ResponseException => e
-      nil
+      return e
     end
     
     def order
@@ -44,7 +44,7 @@ module Certcenter
       @crt = r["OrderParameters"]["Fulfillment"]["Certificate"]
       true
     rescue ResponseException => e
-      nil
+      return e
     end
     
     def intermediate
