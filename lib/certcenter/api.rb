@@ -3,6 +3,7 @@ module Certcenter
   class Api
     
     def initialize(common_name, organization, country, state_name, locality, domain_list, oauth_token, product_code)
+      domain_list   = nil if product_code.include?("AlwaysOnSSL") # no support for san for the moment
       @common_name  = common_name
       @csr          = csr
       @product_code = product_code
