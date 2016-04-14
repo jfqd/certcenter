@@ -6,15 +6,21 @@ Ruby API to order (free domain validated) certificates from Certcenter AG.
 
 Add this line to your application's Gemfile:
 
-  gem 'certcenter'
+```
+gem 'certcenter'
+```
 
 And then execute:
 
-  bundle
+```bash
+bundle
+```
 
 Or install it yourself as:
 
-  gem install certcenter
+```bash
+gem install certcenter
+```
 
 ## Usage
 
