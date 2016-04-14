@@ -49,8 +49,8 @@ module Certcenter
       h = { "OrderParameters" => { "ProductCode" => @product_code, "CSR" => @csr, "ValidityPeriod" => 365 } }
       r = Certcenter.server(@oauth_token).post("Order", h)
       puts r.inspect
-      @intermediate = r["OrderParameters"]["Fulfillment"]["Intermediate"]
-      @crt = r["OrderParameters"]["Fulfillment"]["Certificate"]
+      @intermediate = r["Fulfillment"]["Intermediate"]
+      @crt = r["Fulfillment"]["Certificate"]
       true
     rescue ResponseException => e
       return e
