@@ -14,7 +14,7 @@ module Certcenter
   # )
   class Pki
     
-    KEYSIZE = 4096
+    KEYSIZE = 2048 #4096
     
     # Generate X509 CSR (certificate signing request) with SAN (Subject Alternative Name) extension and sign it with the RSA key
     def self.generate_csr(common_name, organization, country, state_name, locality, domain_list)
