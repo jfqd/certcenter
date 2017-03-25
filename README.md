@@ -1,6 +1,11 @@
 # Certcenter
 
-Ruby API to order (free domain validated) certificates from Certcenter AG.
+Ruby API to order (free so called AlwaysOnSSL domain validated) certificates from Certcenter AG.
+
+**WARNING**: Do not use the certificate service from Certcenter AG! Unless you are willing to change
+your code all the time to get it working again, because they change the api without letting you
+know about it! They do not understand that breaking changes need to be done by increasing the
+api-version! And if you tell them, they do not even care about it.You should better use Let’s Encrypt.
 
 ## Installation
 
