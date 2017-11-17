@@ -45,7 +45,7 @@ module Certcenter
     end
     
     def order
-      h = { "OrderParameters" => { "ProductCode" => @product_code, "CSR" => @csr, "ValidityPeriod" => 365 } }
+      h = { "OrderParameters" => { "ProductCode" => @product_code, "CSR" => @csr, "DVAuthMethod" => "DNS", "ValidityPeriod" => 180 } }
       r = Certcenter.server(@oauth_token).post("Order", h)
       @intermediate = r["Fulfillment"]["Intermediate"]
       @crt = r["Fulfillment"]["Certificate"]
